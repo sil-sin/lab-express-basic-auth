@@ -10,7 +10,31 @@
   </head>
 
   <body>
-
+       <nav>
+         <ul>
+           {{#if isCurrentUser}}
+           <li id="to-right">
+                  <a href="/logout">Logout</a> <span> | </span>
+            </li>
+             <li id="to-right">
+                  <a href="/main">Funny Cat</a> <span> | </span>
+            </li>
+            <li id="to-right">
+                  <a href="/private">Funny Gif</a> <span> | </span>
+            </li>
+            {{else}}
+            <li id="to-right">
+               <a href="/signup">Signup</a> <span> | </span>
+            </li>
+            <li id="to-right">
+               <a href="/signin">SignIn</a> <span> | </span>
+            </li>
+           {{/if}}
+             <li id="to-left">
+               <p><a href="/"> Home </a></p>
+            </li>
+         </ul>
+      </nav> 
     {{{body}}}
 
     <script src="/js/script.js"></script>
