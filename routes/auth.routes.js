@@ -1,8 +1,6 @@
 const router = require("express").Router();
-
-const UserModel = require("../models/User.model");
 const bcrypt = require("bcryptjs");
-const User = require("../models/User.model");
+const UserModel = require("../models/User.model");
 
 /* GET Signup Form */
 router.get("/signup", (req, res, next) => {
@@ -14,7 +12,7 @@ const validateEmpty = (req, res, next) => {
   const { username, password } = req.body;
 
   if (!username || !password) {
-    res.render("auth/signup.hbs", { msg: "Please fill all the fields !" });
+    res.render("auth/signup.hbs", { msg: "Please fill all the fields!" });
   } else {
     next();
   }
@@ -33,8 +31,8 @@ router.post("/signup", validateEmpty, (req, res, next) => {
     }
 
     UserModel.create({ username, password: hash })
-    .then(() => res.redirect("/signin"))
-    .catch((err) => next(err));
+      .then(() => res.redirect("/signin"))
+      .catch((err) => next(err));
   });
 });
 
